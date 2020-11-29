@@ -1,16 +1,2 @@
-﻿  DoublyLinkedList.cpp
-  main.cpp
-C:\Users\Dio\Desktop\Data Str & Algrothms\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\DoublyLinkedList.h(87,16): warning C4552: '-': result of expression not used
-C:\Users\Dio\Desktop\Data Str & Algrothms\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\DoublyLinkedList.h(82): message : while compiling class template member function 'void LinkedList<int>::Push_Front(T)'
-          with
-          [
-              T=int
-          ]
-C:\Users\Dio\Desktop\Data Str & Algrothms\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\main.cpp(10): message : see reference to function template instantiation 'void LinkedList<int>::Push_Front(T)' being compiled
-          with
-          [
-              T=int
-          ]
-C:\Users\Dio\Desktop\Data Str & Algrothms\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\main.cpp(8): message : see reference to class template instantiation 'LinkedList<int>' being compiled
-  Generating Code...
+﻿  main.cpp
   Game2001_A2_ShularMichael.vcxproj -> C:\Users\Dio\Desktop\Data Str & Algrothms\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\Game2001_A2_ShularMichael\x64\Debug\Game2001_A2_ShularMichael.exe
