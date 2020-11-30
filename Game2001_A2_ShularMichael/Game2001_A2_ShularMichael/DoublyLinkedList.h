@@ -17,6 +17,7 @@ public:
 		assert(m_root != NULL);
 		return m_root;
 	}
+
 	LinkNode<T>* End() {
 		return NULL;
 	}
@@ -24,13 +25,67 @@ public:
 		return m_lastNode;
 	}
 
-	void Push_Front(T newData) {
+	void Insert_Before(LinkIterator<T>& it, T newData, int pri)
+	{
+		assert(it.m_node != NULL);
+
+		LinkNode<T>* node = new LinkNode<T>;
+		assert(node != NULL);
+
+		node->setData(newData);
+		node->setProiority(pri);
+		node->setNextNode(it.m_node);
+		node->setPreviousNode(it.m_node->getPreviousNode());
+
+		if (node->getPreviousNode() != NULL)
+		{
+			node->getPreviousNode()->setNextNode(node);
+		}
+
+		it.m_node->setPreviousNode(node);
+		if (it.m_node == m_root)
+		{
+			m_root = node;
+		}
+		
+		m_size++;
+	}
+
+	void Insert_After(LinkIterator<T>& it, T newData, int pri)
+	{
+		assert(it.m_node != NULL);
+
+		LinkNode<T>* node = new LinkNode<T>;
+		assert(node != NULL);
+
+		node->setData(newData);
+		node->setProiority(pri);
+		node->setNextNode(it.m_node->getNextNode());
+		node->setPreviousNode(it.m_node);
+
+		if (node->getNextNode() != NULL)
+		{
+			node->getNextNode()->setPreviousNode(node);
+		}
+
+		it.m_node->setNextNode(node);
+		if (it.m_node == m_lastNode)
+		{
+			m_lastNode = node;
+		}
+
+		m_size++;
+	}
+
+
+	void Push_Front(T newData ) {
 		LinkNode<T>* node = new LinkNode<T>;
 
 		assert(node != NULL);
 		node->setData(newData);
 		node->setNextNode(NULL);
 		node->setPreviousNode(NULL);
+		
 
 		if (m_root != NULL) {
 			node->setNextNode(m_root);
@@ -62,7 +117,7 @@ public:
 
 		m_size = (m_size == 0 ? m_size : m_size - 1);
 	}
-	void Push(T newData) {
+	void Push(T newData, int priority) {
 		
 		LinkNode<T>* node = new LinkNode<T>;
 		
@@ -70,7 +125,8 @@ public:
 		node->setData(newData);
 		node->setNextNode(NULL);
 		node->setPreviousNode(NULL);
-		
+		node->setProiority(priority);
+
 		if (m_lastNode != NULL){
 			m_lastNode->setNextNode(node);
 			node->setPreviousNode(m_lastNode);

@@ -18,11 +18,15 @@ public:
 	{
 		m_data = a;
 	}
+	void setProiority (int a)
+	{
+		m_priority = a; 
+	}
 
 	LinkNode* getNextNode(){ return m_next; }
 	LinkNode* getPreviousNode() { return m_previous; }
 	T getData() { return m_data; }
-
+	int getProiority() { return m_priority;  }
 private:
 	T m_data;
 	int m_priority; 

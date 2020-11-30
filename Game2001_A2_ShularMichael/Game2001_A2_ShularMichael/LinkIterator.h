@@ -1,7 +1,7 @@
 #pragma once
 #include <cassert>
 #include "LinkNode.h"
-#include "LinkIterator.h"
+
 
 template <class T>
 class LinkIterator {
@@ -39,6 +39,9 @@ public:
 	}
 	bool operator ==(LinkNode<T>* node) {
 		return (m_node == node);
+	}
+	bool isValid() {
+		return (m_node != NULL);
 	}
 
 private:

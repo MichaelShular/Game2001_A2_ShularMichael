@@ -142,11 +142,9 @@
     <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="LinkIterator.h" />
     <ClInclude Include="LinkNode.h" />
+    <ClInclude Include="PriorityQueue.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DoublyLinkedList.cpp" />
-    <ClCompile Include="LinkIterator.cpp" />
-    <ClCompile Include="LinkNode.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
