@@ -43,6 +43,10 @@ public:
 	bool isValid() {
 		return (m_node != NULL);
 	}
+	LinkNode<T>* getNode() {
+		return m_node;
+	}
+
 
 private:
 	LinkNode<T>* m_node;

@@ -1,8 +1,9 @@
 #pragma once
+#include <cassert>
 #include "DoublyLinkedList.h"
 #include "LinkNode.h"
 #include "LinkIterator.h"
-
+//Got rid of CMP since the Assignment is only comparing priority values for position and data doesnt effect its position in the doubly link list
 template<class T>
 
 class PriorityQueue
@@ -19,7 +20,7 @@ public:
 		assert(m_elements.getSize() < m_size);
 
 		if(m_elements.getSize() == 0){
-			m_elements.Push(val, pri )
+			m_elements.Push(val, pri); 
 		}
 		else{
 			LinkIterator<T> it;
@@ -27,20 +28,28 @@ public:
 
 			while (it != m_elements.End())
 			{
-				if (pri < it.m_node->getProiority()){
-					it++
-				}
-				if (pri > it.m_node->getProiority()){
-					m_elements.Insert_Before(it, val, pri);
-				}
-				if (pri == it.m_node->getProiority())
+				if (it == m_elements.Last() && pri > it.getNode()->getProiority())
 				{
-					while (pri == it.m_node->getNextNode()->getProiority())
+					m_elements.Insert_After(it, val, pri);
+					break;
+				}
+				if (pri > it.getNode()->getProiority()){
+					it++;
+				}
+				if (pri < it.getNode()->getProiority()){
+					m_elements.Insert_Before(it, val, pri);
+					break;
+				}
+				if (pri == it.getNode()->getProiority())
+				{
+					while ( it != m_elements.Last() && pri == it.getNode()->getNextNode()->getProiority())
 					{
-						i++;
+						it++;
 					}
 					m_elements.Insert_After(it, val, pri);
+					break;
 				}
+				
 			}
 		}
 	}
@@ -48,17 +57,16 @@ public:
 	{
 		m_elements.Pop_Front();
 	}
-	T& front(){
-		LinkIterator<T> it;
-		it = m_elements.Begin();
-
-		return *it
+	LinkNode<T>  front(){
+	/*	LinkIterator<T> it;
+		it = ;*/
+		return *m_elements.Begin();
 	}
 	T& back() {
 		LinkIterator<T> it;
 		it = m_elements.Last();
 
-		return *it
+		return *it;
 	}
 	int getSize() {
 		return m_elements.getSize();
@@ -71,7 +79,7 @@ public:
 	}
 	void Resize(int size){
 		assert(size > 0);
-		m_size = size
+		m_size = size;
 	}
 private:
 	LinkedList<T> m_elements; 

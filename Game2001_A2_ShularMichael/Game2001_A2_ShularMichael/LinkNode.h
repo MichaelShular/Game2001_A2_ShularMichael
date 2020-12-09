@@ -29,7 +29,7 @@ public:
 	int getProiority() { return m_priority;  }
 private:
 	T m_data;
-	int m_priority; 
+	int m_priority = 0; 
 	LinkNode* m_next;
 	LinkNode* m_previous;
 };

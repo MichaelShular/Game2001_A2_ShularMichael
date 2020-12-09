@@ -27,23 +27,23 @@ public:
 
 	void Insert_Before(LinkIterator<T>& it, T newData, int pri)
 	{
-		assert(it.m_node != NULL);
+		assert(it.getNode() != NULL);
 
 		LinkNode<T>* node = new LinkNode<T>;
 		assert(node != NULL);
 
 		node->setData(newData);
 		node->setProiority(pri);
-		node->setNextNode(it.m_node);
-		node->setPreviousNode(it.m_node->getPreviousNode());
+		node->setNextNode(it.getNode());
+		node->setPreviousNode(it.getNode()->getPreviousNode());
 
 		if (node->getPreviousNode() != NULL)
 		{
 			node->getPreviousNode()->setNextNode(node);
 		}
 
-		it.m_node->setPreviousNode(node);
-		if (it.m_node == m_root)
+		it.getNode()->setPreviousNode(node);
+		if (it.getNode() == m_root)
 		{
 			m_root = node;
 		}
@@ -53,23 +53,23 @@ public:
 
 	void Insert_After(LinkIterator<T>& it, T newData, int pri)
 	{
-		assert(it.m_node != NULL);
+		assert( it.getNode() != NULL);
 
 		LinkNode<T>* node = new LinkNode<T>;
 		assert(node != NULL);
 
 		node->setData(newData);
 		node->setProiority(pri);
-		node->setNextNode(it.m_node->getNextNode());
-		node->setPreviousNode(it.m_node);
+		node->setNextNode(it.getNode()->getNextNode());
+		node->setPreviousNode(it.getNode());
 
 		if (node->getNextNode() != NULL)
 		{
 			node->getNextNode()->setPreviousNode(node);
 		}
 
-		it.m_node->setNextNode(node);
-		if (it.m_node == m_lastNode)
+		it.getNode()->setNextNode(node);
+		if (it.getNode() == m_lastNode)
 		{
 			m_lastNode = node;
 		}
